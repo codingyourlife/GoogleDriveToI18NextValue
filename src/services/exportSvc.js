@@ -53,7 +53,9 @@ export default {
     const converter = markdownConversionSvc.createConverter(options, true);
     const parsingCtx = markdownConversionSvc.parseSections(converter, content.text);
     const conversionCtx = markdownConversionSvc.convert(parsingCtx);
+
     const html = conversionCtx.htmlSectionList.map(htmlSanitizer.sanitizeHtml).join('');
+
     containerElt.innerHTML = html;
     extensionSvc.sectionPreview(containerElt, options);
 
@@ -73,6 +75,12 @@ export default {
       children: [],
     }));
     const toc = groupHeadings(headings);
+
+    /**
+     * The important contribution by CodingYourLife for this project and main reason of this fork.
+     */
+    containerElt.innerHTML = containerElt.innerHTML.replace(/\r?\n|\r/g, '');
+
     const view = {
       pdf,
       files: [{

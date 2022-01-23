@@ -6,9 +6,6 @@ import defaultSettings from '../data/defaults/defaultSettings.yml';
 import defaultLocalSettings from '../data/defaults/defaultLocalSettings';
 import defaultLayoutSettings from '../data/defaults/defaultLayoutSettings';
 import plainHtmlTemplate from '../data/templates/plainHtmlTemplate.html';
-import styledHtmlTemplate from '../data/templates/styledHtmlTemplate.html';
-import styledHtmlWithTocTemplate from '../data/templates/styledHtmlWithTocTemplate.html';
-import jekyllSiteTemplate from '../data/templates/jekyllSiteTemplate.html';
 import constants from '../data/constants';
 import features from '../data/features';
 import badgeSvc from '../services/badgeSvc';
@@ -93,11 +90,7 @@ const makeAdditionalTemplate = (name, value, helpers = '\n') => ({
   isAdditional: true,
 });
 const defaultTemplates = {
-  plainText: makeAdditionalTemplate('Plain text', '{{{files.0.content.text}}}'),
   plainHtml: makeAdditionalTemplate('Plain HTML', plainHtmlTemplate),
-  styledHtml: makeAdditionalTemplate('Styled HTML', styledHtmlTemplate),
-  styledHtmlWithToc: makeAdditionalTemplate('Styled HTML with TOC', styledHtmlWithTocTemplate),
-  jekyllSite: makeAdditionalTemplate('Jekyll site', jekyllSiteTemplate),
 };
 
 // For tokens

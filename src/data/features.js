@@ -452,34 +452,9 @@ export default [
     'Use the "Import/export" menu to import and export files.',
     [
       new Feature(
-        'importMarkdown',
-        'Markdown importer',
-        'Use the "Import/export" menu to import a Markdown file from disk.',
-      ),
-      new Feature(
-        'exportMarkdown',
-        'Markdown exporter',
-        'Use the "Import/export" menu to export a Markdown file to disk.',
-      ),
-      new Feature(
-        'importHtml',
-        'HTML importer',
-        'Use the "Import/export" menu to import an HTML file from disk and convert it to Markdown.',
-      ),
-      new Feature(
         'exportHtml',
         'HTML exporter',
         'Use the "Import/export" menu to export a file to disk as an HTML file using a Handlebars template.',
-      ),
-      new Feature(
-        'exportPdf',
-        'PDF exporter',
-        'Use the "Import/export" menu to export a file to disk as a PDF file.',
-      ),
-      new Feature(
-        'exportPandoc',
-        'Pandoc exporter',
-        'Use the "Import/export" menu to export a file to disk using Pandoc.',
       ),
     ],
   ),

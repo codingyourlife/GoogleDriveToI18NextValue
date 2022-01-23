@@ -35,38 +35,20 @@
 import { mapActions } from 'vuex';
 import Toc from './Toc';
 import MainMenu from './menus/MainMenu';
-import WorkspacesMenu from './menus/WorkspacesMenu';
-import SyncMenu from './menus/SyncMenu';
-import PublishMenu from './menus/PublishMenu';
-import HistoryMenu from './menus/HistoryMenu';
 import ImportExportMenu from './menus/ImportExportMenu';
-import WorkspaceBackupMenu from './menus/WorkspaceBackupMenu';
 import markdownSample from '../data/markdownSample.md';
 import markdownConversionSvc from '../services/markdownConversionSvc';
 import store from '../store';
 
 const panelNames = {
-  menu: 'Menu',
-  workspaces: 'Workspaces',
-  help: 'Markdown cheat sheet',
-  toc: 'Table of contents',
-  sync: 'Synchronize',
-  publish: 'Publish',
-  history: 'File history',
   importExport: 'Import/export',
-  workspaceBackups: 'Workspace backups',
 };
 
 export default {
   components: {
     Toc,
     MainMenu,
-    WorkspacesMenu,
-    SyncMenu,
-    PublishMenu,
-    HistoryMenu,
     ImportExportMenu,
-    WorkspaceBackupMenu,
   },
   data: () => ({
     markdownSample: markdownConversionSvc.highlight(markdownSample),

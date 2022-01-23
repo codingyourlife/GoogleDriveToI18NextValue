@@ -13,16 +13,7 @@
     "start": "node build/dev-server.js",
     "build": "node build/build.js && npm run build-style",
     "build-style": "webpack --config build/webpack.style.conf.js",
-    "lint": "eslint --ext .js,.vue src server",
-    "unit": "jest --config test/unit/jest.conf.js --runInBand",
-    "unit-with-coverage": "jest --config test/unit/jest.conf.js --runInBand --coverage",
-    "test": "npm run lint && npm run unit",
-    "preversion": "npm run test",
-    "postversion": "git push origin master --tags && npm publish",
-    "patch": "npm version patch -m \"Tag v%s\"",
-    "minor": "npm version minor -m \"Tag v%s\"",
-    "major": "npm version major -m \"Tag v%s\"",
-    "chart": "mkdir -p dist && rm -rf dist/stackedit && cp -r chart dist/stackedit && sed -i.bak -e s/STACKEDIT_VERSION/$npm_package_version/g dist/stackedit/*.yaml && rm dist/stackedit/*.yaml.bak"
+    "deploy": "npm run build && aws s3 --profile cyl sync dist/ s3://google-drive-to-i18next --acl public-read"
   },
   "dependencies": {
     "@vue/test-utils": "^1.0.0-beta.16",
