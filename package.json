@@ -13,7 +13,7 @@
     "start": "node build/dev-server.js",
     "build": "node build/build.js && npm run build-style",
     "build-style": "webpack --config build/webpack.style.conf.js",
-    "deploy": "npm run build && aws s3 --profile cyl sync dist/ s3://google-drive-to-i18next --acl public-read"
+    "deploy": "npm run build && aws s3 --profile cyl sync dist/ s3://google-drive-to-i18next --acl public-read && aws cloudfront create-invalidation --distribution-id E1L3LY1JZHLHEX --paths '/*'"
   },
   "dependencies": {
     "@vue/test-utils": "^1.0.0-beta.16",
@@ -28,7 +28,7 @@
     "file-saver": "^1.3.8",
     "google-id-token-verifier": "^0.2.3",
     "handlebars": "^4.0.10",
-    "indexeddbshim": "^3.6.2",
+    "indexeddbshim": "^13.0.0",
     "js-yaml": "^3.11.0",
     "katex": "^0.13.0",
     "markdown-it": "^8.4.1",
@@ -41,7 +41,7 @@
     "markdown-it-pandoc-renderer": "1.2.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "mermaid": "^8.9.2",
+    "mermaid": "^10.8.0",
     "mousetrap": "^1.6.1",
     "normalize-scss": "^7.0.1",
     "prismjs": "^1.6.0",
@@ -91,7 +91,6 @@
     "jest": "^23.0.0",
     "jest-raw-loader": "^1.0.1",
     "jest-serializer-vue": "^0.3.0",
-    "node-sass": "^4.0.0",
     "npm-bump": "^0.0.23",
     "offline-plugin": "^5.0.3",
     "opn": "^4.0.2",
@@ -100,7 +99,7 @@
     "raw-loader": "^0.5.1",
     "replace-in-file": "^4.1.0",
     "rimraf": "^2.6.0",
-    "sass-loader": "^7.0.1",
+    "sass-loader": "^7.3.1",
     "semver": "^5.5.0",
     "shelljs": "^0.8.1",
     "string-replace-loader": "^2.1.1",
