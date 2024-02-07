@@ -6,3 +6,8 @@ This is repo was forked because original did not have single line option. Also s
 
 
 Demo: https://d1eehlaw8q45th.cloudfront.net/
+
+## Info and Tips for Developers
+
+- Use node8 and do not waste your time trying to upgrade this project
+- You cannot get it running on Apple Silicone Chips so use your Windows device
