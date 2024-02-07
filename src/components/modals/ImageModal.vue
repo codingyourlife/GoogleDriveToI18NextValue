@@ -7,7 +7,7 @@
       </form-entry>
       <menu-entry @click.native="openGooglePhotos(token)" v-for="token in googlePhotosTokens" :key="token.sub">
         <icon-provider slot="icon" provider-id="googlePhotos"></icon-provider>
-        <div>Open from Google Photos</div>
+        <div>Open from Google Photoz</div>
         <span>{{token.name}}</span>
       </menu-entry>
       <menu-entry @click.native="addGooglePhotosAccount">
