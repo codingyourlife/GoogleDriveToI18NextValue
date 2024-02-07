@@ -4,9 +4,9 @@ var webpack = require('webpack')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var StylelintPlugin = require('stylelint-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -35,14 +35,11 @@ module.exports = {
     publicPath: config.build.assetsPublicPath
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
+    new UglifyJsPlugin({
       sourceMap: true
     }),
     // extract css into its own file
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
     // Compress extracted CSS. We are using this plugin so that possible

@@ -30,7 +30,7 @@ module.exports = {
   'rules': {
     'no-param-reassign': [2, { 'props': false }],
     // don't require .vue extension when importing
-    'import/extensions': ['error', 'always', {
+    'import/extensions': ['error', 'always', 'ignorePackages', {
       'js': 'never',
       'vue': 'never'
     }],

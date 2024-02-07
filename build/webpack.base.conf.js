@@ -2,9 +2,8 @@ var path = require('path')
 var webpack = require('webpack')
 var utils = require('./utils')
 var config = require('../config')
-var VueLoaderPlugin = require('vue-loader/lib/plugin')
 var vueLoaderConfig = require('./vue-loader.conf')
-var StylelintPlugin = require('stylelint-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -16,7 +15,7 @@ module.exports = {
   },
   node: {
     // For mermaid
-    fs: 'empty' // jison generated code requires 'fs'
+    // fs: 'empty' // jison generated code requires 'fs'
   },
   output: {
     path: config.build.assetsRoot,
@@ -29,7 +28,11 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': resolve('src')
-    }
+    },
+    fallback: {
+      fs: false,
+      path: require.resolve('path-browserify'),
+    },
   },
   module: {
     rules: [
@@ -99,9 +102,6 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new StylelintPlugin({
-      files: ['**/*.vue', '**/*.scss']
-    }),
     new webpack.DefinePlugin({
       VERSION: JSON.stringify(require('../package.json').version)
     })

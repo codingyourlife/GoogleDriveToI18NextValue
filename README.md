@@ -6,3 +6,7 @@ This is repo was forked because original did not have single line option. Also s
 
 
 Demo: https://d1eehlaw8q45th.cloudfront.net/
+
+## Tech Details
+
+Reacv v ???
